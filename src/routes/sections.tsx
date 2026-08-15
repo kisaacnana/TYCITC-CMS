@@ -8,16 +8,16 @@ import { varAlpha } from 'src/theme/styles';
 import { AuthLayout } from 'src/layouts/auth';
 import { DashboardLayout } from 'src/layouts/dashboard';
 
-// ----------------------------------------------------------------------
-
 export const HomePage = lazy(() => import('src/pages/home'));
 export const BlogPage = lazy(() => import('src/pages/blog'));
 export const UserPage = lazy(() => import('src/pages/user'));
 export const SignInPage = lazy(() => import('src/pages/sign-in'));
-export const ProductsPage = lazy(() => import('src/pages/products'));
+export const MediaPage = lazy(() => import('src/pages/cms-media'));
+export const EventsPage = lazy(() => import('src/pages/cms-events'));
+export const PagesPage = lazy(() => import('src/pages/cms-pages'));
+export const MessagesPage = lazy(() => import('src/pages/cms-messages'));
+export const SettingsPage = lazy(() => import('src/pages/cms-settings'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
-
-// ----------------------------------------------------------------------
 
 const renderFallback = (
   <Box display="flex" alignItems="center" justifyContent="center" flex="1 1 auto">
@@ -44,9 +44,13 @@ export function Router() {
       ),
       children: [
         { element: <HomePage />, index: true },
-        { path: 'user', element: <UserPage /> },
-        { path: 'gallery', element: <ProductsPage /> },
         { path: 'posts', element: <BlogPage /> },
+        { path: 'events', element: <EventsPage /> },
+        { path: 'pages', element: <PagesPage /> },
+        { path: 'media', element: <MediaPage /> },
+        { path: 'messages', element: <MessagesPage /> },
+        { path: 'users', element: <UserPage /> },
+        { path: 'settings', element: <SettingsPage /> },
       ],
     },
     {
@@ -57,13 +61,7 @@ export function Router() {
         </AuthLayout>
       ),
     },
-    {
-      path: '404',
-      element: <Page404 />,
-    },
-    {
-      path: '*',
-      element: <Navigate to="/404" replace />,
-    },
+    { path: '404', element: <Page404 /> },
+    { path: '*', element: <Navigate to="/404" replace /> },
   ]);
 }
