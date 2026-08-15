@@ -3,14 +3,9 @@ import 'src/global.css';
 import Fab from '@mui/material/Fab';
 
 import { Router } from 'src/routes/sections';
-
 import { useScrollToTop } from 'src/hooks/use-scroll-to-top';
-
 import { ThemeProvider } from 'src/theme/theme-provider';
-
 import { Iconify } from 'src/components/iconify';
-
-// ----------------------------------------------------------------------
 
 export default function App() {
   useScrollToTop();
@@ -18,8 +13,10 @@ export default function App() {
   const githubButton = (
     <Fab
       size="medium"
-      aria-label="Github"
-      href="*"
+      aria-label="View TYCITC CMS on GitHub"
+      href="https://github.com/kisaacnana/TYCITC-CMS"
+      target="_blank"
+      rel="noreferrer"
       sx={{
         zIndex: 9,
         right: 20,
