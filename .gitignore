@@ -1,36 +1,34 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-node_modules
-.pnp
+# Dependencies
+node_modules/
+.pnp/
 .pnp.js
 
-# testing
-coverage
+# Build output
+.next/
+.swc/
+_static/
+out/
+dist/
+build/
 
-# production
-.next
-.swc
-_static
-out
-dist
-build
-
-# environment variables
+# Environment and secrets
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
 
-# misc
-.DS_Store
-.vercel
-.netlify
-.unimportedrc.json
+# Test / tooling output
+coverage/
 tsconfig.tsbuildinfo
-.vscode
 
+# Local tooling
+.DS_Store
+.vercel/
+.netlify/
+.unimportedrc.json
+.vscode/
+
+# Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
